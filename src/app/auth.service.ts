@@ -18,14 +18,14 @@ export class AuthService {
   registerUser(user) {
     let headers = new Headers()
     headers.append('Content-Type', 'application/json')
-    return this.http.post('http://localhost:3000/account/reg', user, 
+    return this.http.post('https://mighty-castle-11676.herokuapp.com/account/reg', user, 
     { headers: headers}).pipe(map(res => res.json()))
   }
 
   authUser(user) {
     let headers = new Headers()
     headers.append('Content-Type', 'application/json')
-    return this.http.post('http://localhost:3000/account/auth', user, 
+    return this.http.post('https://mighty-castle-11676.herokuapp.com/account/auth', user, 
     { headers: headers}).pipe(map(res => res.json()))
   }
 
@@ -51,21 +51,21 @@ export class AuthService {
     let headers = new Headers()
     headers.append('Authorization', localStorage.getItem('token'))
     headers.append('Content-Type', 'application/json')
-    return this.http.post('http://localhost:3000/account/dashboard', post, 
+    return this.http.post('https://mighty-castle-11676.herokuapp.com/account/dashboard', post, 
     { headers: headers}).pipe(map(res => res.json()))
   }
 
   getAllPosts() {
-    return this.http.get('http://localhost:3000' ).pipe(map(res => res.json()))
+    return this.http.get('https://mighty-castle-11676.herokuapp.com' ).pipe(map(res => res.json()))
   }
 
   getPostById(id) {
-    return this.http.get(`http://localhost:3000/post/${id}` ).pipe(map(res => res.json()))
+    return this.http.get(`https://mighty-castle-11676.herokuapp.com/post/${id}` ).pipe(map(res => res.json()))
   }
 
   deletePost(id) {
     let headers = new Headers()
     headers.append('Authorization', localStorage.getItem('token'))
-    return this.http.delete(`http://localhost:3000/post/${id}`, { headers: headers} ).pipe(map(res => res.json()))
+    return this.http.delete(`https://mighty-castle-11676.herokuapp.com/post/${id}`, { headers: headers} ).pipe(map(res => res.json()))
   }
 }
